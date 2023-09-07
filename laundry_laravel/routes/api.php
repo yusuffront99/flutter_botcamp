@@ -33,6 +33,7 @@ Route::get('/laundry', [LaundryController::class, 'readAll'])->name('readAll.lau
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/promo/limit', [PromoController::class, 'readLimit'])->name('readAll.promo');
     Route::get('/shop/recomendation/limit', [ShopController::class, 'readRecomendationLimit'])->name('readAll.shop');
+    Route::get('/shop/search/city/{name}', [ShopController::class, 'searchByCitry'])->name('readAll.searchCity');
 });
 
 
