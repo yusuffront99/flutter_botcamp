@@ -22,8 +22,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get('/user', [UserController::class, 'readAll'])->name('readAll.user');
+Route::post('/register', [UserController::class, 'register'])->name('register.user');
 
 Route::get('/promo', [PromoController::class, 'readAll'])->name('readAll.promo');
 Route::get('/shop', [ShopController::class, 'readAll'])->name('readAll.shop');
 Route::get('/laundry', [LaundryController::class, 'readAll'])->name('readAll.laundry');
-Route::get('/user', [UserController::class, 'readAll'])->name('readAll.user');
+
+
