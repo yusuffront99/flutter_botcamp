@@ -33,6 +33,7 @@ Route::get('/laundry', [LaundryController::class, 'readAll'])->name('readAll.lau
 Route::middleware('auth:sanctum')->group(function(){
     // == LAUNDRY
     Route::get('/laundry/user/{id}', [LaundryController::class, 'whereUserId'])->name('whereUserId.laundry');
+    Route::post('/laundry/claim', [LaundryController::class, 'claim'])->name('claim.laundry');
 
     // == PROMO
     Route::get('/promo/limit', [PromoController::class, 'readLimit'])->name('readAll.promo');
