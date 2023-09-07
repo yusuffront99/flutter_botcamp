@@ -31,9 +31,15 @@ Route::get('/shop', [ShopController::class, 'readAll'])->name('readAll.shop');
 Route::get('/laundry', [LaundryController::class, 'readAll'])->name('readAll.laundry');
 
 Route::middleware('auth:sanctum')->group(function(){
+    // == LAUNDRY
+    Route::get('/laundry/user/{id}', [LaundryController::class, 'whereUserId'])->name('whereUserId.laundry');
+
+    // == PROMO
     Route::get('/promo/limit', [PromoController::class, 'readLimit'])->name('readAll.promo');
+    
+    // == SHOP
     Route::get('/shop/recomendation/limit', [ShopController::class, 'readRecomendationLimit'])->name('readAll.shop');
-    Route::get('/shop/search/city/{name}', [ShopController::class, 'searchByCitry'])->name('readAll.searchCity');
+    Route::get('/shop/search/city/{name}', [ShopController::class, 'searchByCitry'])->name('searchCity/shop');
 });
 
 
