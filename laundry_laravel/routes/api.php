@@ -27,11 +27,13 @@ Route::post('/register', [UserController::class, 'register'])->name('register.us
 Route::post('/login', [UserController::class, 'login'])->name('login.user');
 
 Route::get('/promo', [PromoController::class, 'readAll'])->name('readAll.promo');
-Route::middleware('auth.sanctum')->group(function(){
-    Route::get('/promo/limit', [PromoController::class, 'readLimit'])->name('readAll.promo');
-});
-
 Route::get('/shop', [ShopController::class, 'readAll'])->name('readAll.shop');
 Route::get('/laundry', [LaundryController::class, 'readAll'])->name('readAll.laundry');
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/promo/limit', [PromoController::class, 'readLimit'])->name('readAll.promo');
+    Route::get('/shop/recomendation/limit', [ShopController::class, 'readRecomendationLimit'])->name('readAll.shop');
+});
+
 
 

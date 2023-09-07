@@ -17,6 +17,7 @@ class PromoController extends Controller
         ], 200);
     
     }
+    
     function readLimit()
     {
         $promos = promo::orderBy('created_at', 'desc')->limit(5)->with('shop')->get();
